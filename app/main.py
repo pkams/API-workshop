@@ -12,7 +12,7 @@ lista_de_produtos = Produtos()
 def home():
     return {'Ola':'Mundao'}
 
-@app.get("/produtos", response_model=list[ProdutoSchema])
+@app.get("/produtos", response_model=List[ProdutoSchema])
 def listar_produtos():
     return lista_de_produtos.listar_produtos()
 
