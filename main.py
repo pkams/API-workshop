@@ -12,15 +12,15 @@ produtos: List[Dict[str, any]] = [
     },
     {
         "id": 2,
-        "nome": "Smart",
-        "descricao": "Um telefone",
+        "nome": "TV",
+        "descricao": "Uma TV 4K",
         "preco": 25000.0,
     },
     {
         "id": 3,
-        "nome": "Sma",
-        "descricao": "Um inteligente produto",
-        "preco": 46000.0,
+        "nome": "Livro",
+        "descricao": "Um livro maneiro",
+        "preco": 40.0,
     }
 ]
 
@@ -31,3 +31,10 @@ def home():
 @app.get("/produtos")
 def listar_produtos():
     return produtos
+
+@app.get("/produto/{id}")
+def buscar_produto(id: int):
+    for produto in produtos:
+        if produto["id"] == id:
+            return produto
+    return {"Status": 404, "Mensagem":"Produto não encontrado"}
