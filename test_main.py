@@ -14,3 +14,11 @@ def test_ola_mundo_json():
     response = client.get('/')
     print(response)
     assert response.json() == {'Ola':'Mundao'}
+
+def test_listar_Produtos_status_code():
+    response = client.get("/produtos")
+    assert response.status_code == 200
+
+def test_tamanho_lista_de_produtos():
+    response = client.get("/produtos")
+    assert len(response.json()) == 3
