@@ -31,6 +31,6 @@ class Produtos:
                 return produto
         return {"Status": 404, "Mensagem":"Produto não encontrado"}
 
-    def adicionar_produtos(self, produto):
+    def adicionar_produto(self, produto):
         self.produtos.append(produto)
         return produto
